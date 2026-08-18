@@ -1,0 +1,70 @@
+{
+  "heads_up_known": {
+    "aa_vs_kk": {
+      "win": 0.82334,
+      "tie": 0.0061,
+      "lose": 0.17056,
+      "equity": 0.82639
+    },
+    "aks_vs_qq": {
+      "win": 0.45838,
+      "tie": 0.0046,
+      "lose": 0.53702,
+      "equity": 0.46068000000000003
+    },
+    "72o_vs_aa": {
+      "win": 0.11484,
+      "tie": 0.00452,
+      "lose": 0.88064,
+      "equity": 0.1171
+    },
+    "aks_vs_qjs": {
+      "win": 0.62666,
+      "tie": 0.00552,
+      "lose": 0.36782,
+      "equity": 0.62942
+    }
+  },
+  "range_vs_range": {
+    "ako_vs_qqplus": 0.31004,
+    "wide_equity": 0.64078,
+    "narrow_equity": 0.31004,
+    "postflop_tptk": 0.79673
+  },
+  "multiway_dilution": {
+    "heads_up": 0.82593,
+    "three_way": 0.66582,
+    "four_way": 0.54877
+  },
+  "range_vs_range_preflop": 0.6585300000000001,
+  "outs": {
+    "vs_aa": 9,
+    "vs_kk": 12,
+    "rule_of_4_flop": 0.36,
+    "rule_of_2_turn": 0.18,
+    "mc_flop_equity": 0.36148
+  },
+  "mixed_spec": {
+    "with_extra_villain": 0.26679,
+    "no_extra_villain": 0.30652
+  },
+  "river": {
+    "win": 1.0,
+    "tie": 0.0,
+    "lose": 0.0
+  },
+  "chop": {
+    "win": 0.0,
+    "tie": 1.0,
+    "lose": 0.0
+  },
+  "range_combo_counts": {
+    "AA": 6,
+    "22+": 78,
+    "AKs": 4,
+    "AKo": 12,
+    "ATs+": 16,
+    "QQ+,AKs,AKo": 34,
+    "AA+": 6
+  }
+}

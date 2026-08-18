@@ -1,69 +1,153 @@
-import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import { getSoftwareApplicationSchema, SITE_URL } from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "Poker Helper Calculator — Equity, Pot Odds & Bankroll Tools",
+  description:
+    "Free standalone poker equity calculator, implied odds calculator, and bankroll sizing tool. Manual card entry, no live-table connection.",
+  alternates: { canonical: SITE_URL },
+};
+
+const tools = [
+  {
+    href: "/implied-odds-calculator/",
+    title: "Implied Odds Calculator",
+    description: "Pot odds + stack-to-pot ratio, to see whether a draw is worth calling.",
+    live: true,
+  },
+  {
+    href: "/toolkit/bankroll-calculator/",
+    title: "Bankroll Calculator",
+    description: "Kelly-criterion risk-of-ruin math — how many buy-ins you need at a stake.",
+    live: true,
+  },
+  {
+    href: "/equity-calculator/",
+    title: "Equity Calculator",
+    description: "Hand vs hand, hand vs range, range vs range, 3+ way pots.",
+    live: true,
+  },
+  {
+    href: "/range-vs-range-equity-calculator/",
+    title: "Range vs Range Calculator",
+    description: "Build both players' ranges on a 13x13 grid and get live equity.",
+    live: true,
+  },
+  {
+    href: "/matchups/",
+    title: "Hand Matchup Odds",
+    description: "AA vs KK, AKs vs QQ, and 18 more common preflop matchups.",
+    live: true,
+  },
+  {
+    href: "/poker-range-calculator/",
+    title: "Poker Range Calculator",
+    description: "Build a range and see its exact percentage of all starting hands.",
+    live: true,
+  },
+];
+
+const guides = [
+  {
+    href: "/hand-strength-guide/",
+    title: "Hand Strength Guide",
+    description: "The 9 hand categories, ranked, with what makes each strong or vulnerable.",
+  },
+  {
+    href: "/position-and-starting-hands/",
+    title: "Position & Starting Hands",
+    description: "Every seat at the table, in order, with opening-range guidance.",
+  },
+  {
+    href: "/bet-sizing-guide/",
+    title: "Bet Sizing Guide",
+    description: "Standard sizing by street — preflop, c-bets, and value vs bluff.",
+  },
+];
+
+const toolkit = [
+  { href: "/toolkit/opponent-notes/", title: "Opponent Notes", description: "Log tendencies on players you've faced." },
+  { href: "/toolkit/table-selection/", title: "Table Selection", description: "Score a table before you sit down." },
+  { href: "/toolkit/session-guardian/", title: "Session Guardian", description: "Stop-loss, stop-win, and a session timer." },
+  { href: "/toolkit/hand-log/", title: "Hand & Volume Log", description: "Track results over time — bb/100, automatically." },
+];
 
 export default function Home() {
+  const schema = getSoftwareApplicationSchema(
+    "Poker Helper Calculator",
+    "Standalone poker equity, pot odds, implied odds, and bankroll calculators.",
+    SITE_URL,
+  );
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
+        Poker Helper Calculator
+      </h1>
+      <p className="mt-3 max-w-xl text-slate-600">
+        Standalone, manual-entry poker math tools — equity, pot odds, implied odds, and
+        bankroll sizing. You enter your own cards and numbers; there&apos;s no live-table
+        connection or automation of any kind.
+      </p>
+
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {tools.map((tool) =>
+          tool.live ? (
+            <Link
+              key={tool.href}
+              href={tool.href}
+              className="block rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-emerald-400 hover:shadow-md"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <h2 className="font-bold text-slate-900">{tool.title}</h2>
+              <p className="mt-1 text-sm text-slate-600">{tool.description}</p>
+            </Link>
+          ) : (
+            <div
+              key={tool.href}
+              className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-5 opacity-70"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+              <h2 className="font-bold text-slate-500">{tool.title}</h2>
+              <p className="mt-1 text-sm text-slate-500">{tool.description}</p>
+              <span className="mt-2 inline-block text-xs font-semibold uppercase tracking-wide text-slate-400">
+                Coming soon
+              </span>
+            </div>
+          ),
+        )}
+      </div>
+
+      <h2 className="mt-14 text-xl font-bold text-slate-900">Reference guides</h2>
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        {guides.map((guide) => (
+          <Link
+            key={guide.href}
+            href={guide.href}
+            className="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-emerald-400 hover:shadow-md"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <h3 className="font-bold text-slate-900">{guide.title}</h3>
+            <p className="mt-1 text-sm text-slate-600">{guide.description}</p>
+          </Link>
+        ))}
+      </div>
+
+      <h2 className="mt-14 text-xl font-bold text-slate-900">Home-game toolkit</h2>
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {toolkit.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="block rounded-xl border border-slate-200 bg-white p-4 shadow-sm transition hover:border-emerald-400 hover:shadow-md"
           >
-            Documentation
-          </a>
-        </div>
-      </main>
+            <h3 className="font-bold text-slate-900">{item.title}</h3>
+            <p className="mt-1 text-sm text-slate-600">{item.description}</p>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

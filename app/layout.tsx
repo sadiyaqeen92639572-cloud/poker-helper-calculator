@@ -27,6 +27,9 @@ export const metadata: Metadata = {
     "Free standalone poker equity calculator, implied odds calculator, and bankroll sizing tool. Manual card entry, no live-table connection — study your spots before or after you play.",
   manifest: "/manifest.json",
   applicationName: "Poker Helper Calculator",
+  verification: {
+    google: "PpR9SYzfHQotY1S4R_y4nXTe2h8MR8zpavZcEJTS8-A",
+  },
 };
 
 export const viewport: Viewport = {

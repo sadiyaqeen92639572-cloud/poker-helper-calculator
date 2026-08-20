@@ -20,6 +20,10 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Free Companion Tools
+
+- [Pot Odds Quick Check](https://sadiyaqeen92639572-cloud.github.io/pot-odds-quick-check/) — instant call-or-fold verdict from pot size, bet to call, and outs (rule of 4 and 2). Powered by [Poker Helper Calculator](https://pokerhelpercalculator.com/) — for implied odds, range-vs-range equity, and bankroll sizing, use the full toolkit.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

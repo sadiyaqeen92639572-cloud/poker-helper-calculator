@@ -49,6 +49,19 @@ export default function MatchupsIndexPage() {
           </Link>
         ))}
       </div>
+
+      <p className="mt-10 text-sm text-slate-600">
+        Need a spot that isn&apos;t listed — a range instead of an exact hand, or a
+        specific board? Use the{" "}
+        <Link href="/equity-calculator" className="font-semibold text-emerald-600 hover:underline">
+          equity calculator
+        </Link>{" "}
+        or the{" "}
+        <Link href="/range-vs-range-equity-calculator" className="font-semibold text-emerald-600 hover:underline">
+          range vs range calculator
+        </Link>
+        .
+      </p>
     </div>
   );
 }

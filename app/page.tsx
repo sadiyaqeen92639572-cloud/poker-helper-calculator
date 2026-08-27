@@ -66,6 +66,22 @@ const guides = [
   },
 ];
 
+// Direct links to the matchups with real search demand (GSC), so the
+// cluster is reachable in one hop from the highest-authority page instead
+// of only via the /matchups hub.
+const featuredMatchups = [
+  { href: "/matchups/ako-vs-qq", label: "AKo vs QQ" },
+  { href: "/matchups/aks-vs-qq", label: "AKs vs QQ" },
+  { href: "/matchups/22-vs-aks", label: "22 vs AKs" },
+  { href: "/matchups/tt-vs-aks", label: "TT vs AKs" },
+  { href: "/matchups/qq-vs-kk", label: "QQ vs KK" },
+  { href: "/matchups/aa-vs-kk", label: "AA vs KK" },
+  { href: "/matchups/aa-vs-qq", label: "AA vs QQ" },
+  { href: "/matchups/aks-vs-ako", label: "AKs vs AKo" },
+  { href: "/matchups/kk-vs-aks", label: "KK vs AKs" },
+  { href: "/matchups/jj-vs-aks", label: "JJ vs AKs" },
+];
+
 const toolkit = [
   { href: "/toolkit/opponent-notes", title: "Opponent Notes", description: "Log tendencies on players you've faced." },
   { href: "/toolkit/table-selection", title: "Table Selection", description: "Score a table before you sit down." },
@@ -119,6 +135,26 @@ export default function Home() {
             </div>
           ),
         )}
+      </div>
+
+      <h2 className="mt-14 text-xl font-bold text-slate-900">Common matchup odds</h2>
+      <p className="mt-2 text-sm text-slate-600">
+        Preflop win percentages for the hand-vs-hand spots people ask about most.{" "}
+        <Link href="/matchups" className="font-semibold text-emerald-600 hover:underline">
+          See all matchups
+        </Link>
+        .
+      </p>
+      <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {featuredMatchups.map((m) => (
+          <Link
+            key={m.href}
+            href={m.href}
+            className="rounded-lg border border-slate-200 bg-white p-3 text-center text-sm font-semibold text-slate-800 shadow-sm hover:border-emerald-400 hover:text-emerald-600"
+          >
+            {m.label}
+          </Link>
+        ))}
       </div>
 
       <h2 className="mt-14 text-xl font-bold text-slate-900">Reference guides</h2>

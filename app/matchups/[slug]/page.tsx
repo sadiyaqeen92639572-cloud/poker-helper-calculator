@@ -15,6 +15,16 @@ function findMatchup(slug: string) {
   return MATCHUPS.find((m) => m.slug === slug);
 }
 
+// Deterministic cyclic neighbours: each matchup links the next 5 by array
+// index (wrapping). Guarantees every matchup has exactly 5 inbound links —
+// a "shared hand" heuristic leaves some pages with zero inbound coverage,
+// which is the number that matters for crawl reach.
+function relatedMatchups(slug: string) {
+  const i = MATCHUPS.findIndex((m) => m.slug === slug);
+  if (i === -1) return [];
+  return Array.from({ length: 5 }, (_, k) => MATCHUPS[(i + k + 1) % MATCHUPS.length]);
+}
+
 // Build-time precomputed equity (not live client computation) for instant
 // LCP — matches the plan's requirement for /matchups/ pages. Fixed seed
 // per page keeps the number stable across rebuilds.
@@ -46,6 +56,7 @@ export default async function MatchupPage({ params }: { params: Promise<{ slug: 
 
   const result = computeMatchupEquity(matchup);
   const url = absoluteUrl(`matchups/${matchup.slug}`);
+  const related = relatedMatchups(matchup.slug);
 
   const faqs = [
     {
@@ -122,6 +133,28 @@ export default async function MatchupPage({ params }: { params: Promise<{ slug: 
         </Link>
         .
       </p>
+
+      <section className="mt-12">
+        <h2 className="text-xl font-bold text-slate-900">Related matchups</h2>
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {related.map((m) => (
+            <Link
+              key={m.slug}
+              href={`/matchups/${m.slug}`}
+              className="rounded-lg border border-slate-200 bg-white p-3 text-center text-sm font-semibold text-slate-800 shadow-sm hover:border-emerald-400 hover:text-emerald-600"
+            >
+              {m.title} Odds
+            </Link>
+          ))}
+        </div>
+        <p className="mt-3 text-sm text-slate-600">
+          Or browse{" "}
+          <Link href="/matchups" className="font-semibold text-emerald-600 hover:underline">
+            all hand matchups
+          </Link>
+          .
+        </p>
+      </section>
 
       <section className="mt-12">
         <h2 className="text-xl font-bold text-slate-900">FAQ</h2>

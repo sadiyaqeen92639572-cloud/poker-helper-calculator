@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { GESMINE_ORG, SITE_URL, absoluteUrl } from "@/lib/seo";
+import { GESMINE_ORG, absoluteUrl } from "@/lib/seo";
 
 const URL = absoluteUrl("about");
 
 export const metadata: Metadata = {
-  title: "About Poker Helper Calculator",
+  title: "Methodology — How This Site Verifies Its Poker Math",
   description:
-    "Who runs Poker Helper Calculator, how its math is built and tested, and why every calculator here is deterministic arithmetic — no AI, no live-table connection.",
+    "The exact test protocol behind these calculators: verbatim reference assertions, a 100,000-hand fixed-seed evaluator parity check, and 50,000-trial Monte Carlo statistical parity. Deterministic arithmetic, no AI, no live-table connection.",
   alternates: { canonical: URL },
 };
 
@@ -16,7 +16,7 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "AboutPage",
     url: URL,
-    name: "About Poker Helper Calculator",
+    name: "How this site's math is built and verified",
     publisher: GESMINE_ORG,
   };
 
@@ -25,11 +25,13 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 
       <h1 className="text-3xl font-black tracking-tight text-slate-900 sm:text-4xl">
-        About Poker Helper Calculator
+        How this site&apos;s math is built and verified
       </h1>
       <p className="mt-3 text-slate-600">
-        Standalone, manual-entry poker math tools — what they are, how the math is built and
-        checked, and what this site deliberately doesn&apos;t do.
+        The engine behind these calculators — hand evaluator, Monte Carlo equity, range
+        parser, odds formulas — is ported from a reference implementation and gated by a
+        three-layer test suite that runs before anything ships. Here is exactly what each
+        layer checks.
       </p>
 
       <section className="mt-10 space-y-4 text-slate-700">
@@ -43,16 +45,43 @@ export default function AboutPage() {
           kind — every result requires you to type in the inputs yourself.
         </p>
 
-        <h2 className="text-xl font-bold text-slate-900">How the math is built and checked</h2>
+        <h2 className="text-xl font-bold text-slate-900">Layer 1 — verbatim reference assertions</h2>
         <p>
-          The hand evaluator, Monte Carlo equity engine, range-notation parser, and odds
-          formulas are ported from a reference implementation and verified with three layers
-          of automated tests before any calculator ships: exact-match assertions against known
-          poker facts (e.g. a pair of aces beats a pair of kings), an exhaustive parity check
-          running 100,000 random hands through the evaluator to catch subtle tie-break bugs,
-          and statistical parity checks confirming Monte Carlo results converge within
-          tolerance of the reference numbers. Every formula on this site is deterministic
-          arithmetic given its inputs — not a model, not an estimate dressed up as one.
+          Fixed poker facts, ported one-for-one from the reference implementation and asserted
+          exactly: a pair of aces beats a pair of kings, a fully-decided river hand returns the
+          same equity on every trial, the rule-of-4-and-2 outs shortcuts land where they
+          should. No tolerance — these either match or the build fails.
+        </p>
+
+        <h2 className="text-xl font-bold text-slate-900">Layer 2 — 100,000-hand evaluator parity</h2>
+        <p>
+          The 5-card hand evaluator is run against 100,000 random hands generated from a
+          fixed seed in the reference (Python) implementation, and every rank and every
+          tie-break must agree. This is the layer that catches the subtle bugs — kicker
+          ordering, wheel straights, flush-over-full-house edge cases — that a handful of
+          spot-check assertions would miss. The fixture is committed to the repo, so the
+          same 100,000 hands are checked on every run.
+        </p>
+
+        <h2 className="text-xl font-bold text-slate-900">Layer 3 — 50,000-trial Monte Carlo statistical parity</h2>
+        <p>
+          Equity numbers are produced by seeded Monte Carlo simulation — 50,000 trials per
+          spot in the test suite. Because two language runtimes don&apos;t produce identical
+          random streams from the same seed, this layer is a tolerance check, not a
+          bit-exact one: heads-up, hand-vs-range, range-vs-range, and draw-equity spots must
+          all converge within a small margin of the reference figures (standard error on a
+          ~50% edge is about ±1 percentage point at these trial counts). The matchup pages
+          are precomputed at build time with a fixed per-matchup seed, so the number you see
+          is stable between visits.
+        </p>
+
+        <h2 className="text-xl font-bold text-slate-900">Why it&apos;s arithmetic, not a model</h2>
+        <p>
+          Every formula on this site is deterministic given its inputs. The equity engine is
+          a simulation with a known method and a fixed seed; the odds, SPR, outs, and
+          bankroll formulas are closed-form. Nothing here is a learned estimate or a
+          prediction — run the same inputs twice and you get the same answer, and the method
+          for each result is written out on its own page.
         </p>
 
         <h2 className="text-xl font-bold text-slate-900">What this site deliberately avoids</h2>

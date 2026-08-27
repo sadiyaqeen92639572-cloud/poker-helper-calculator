@@ -126,6 +126,38 @@ export default function RangeVsRangeCalculatorPage() {
       </p>
 
       <section className="mt-12">
+        <h2 className="text-xl font-bold text-slate-900">Prefer an exact hand vs hand?</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Jump straight to a precomputed matchup instead of building ranges:
+        </p>
+        <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {[
+            { href: "/matchups/ako-vs-qq", label: "AKo vs QQ" },
+            { href: "/matchups/aks-vs-qq", label: "AKs vs QQ" },
+            { href: "/matchups/qq-vs-kk", label: "QQ vs KK" },
+            { href: "/matchups/aa-vs-kk", label: "AA vs KK" },
+            { href: "/matchups/tt-vs-aks", label: "TT vs AKs" },
+            { href: "/matchups/22-vs-aks", label: "22 vs AKs" },
+          ].map((m) => (
+            <Link
+              key={m.href}
+              href={m.href}
+              className="rounded-lg border border-slate-200 bg-white p-3 text-center text-sm font-semibold text-slate-800 shadow-sm hover:border-emerald-400 hover:text-emerald-600"
+            >
+              {m.label}
+            </Link>
+          ))}
+        </div>
+        <p className="mt-3 text-sm text-slate-600">
+          Or see{" "}
+          <Link href="/matchups" className="font-semibold text-emerald-600 hover:underline">
+            all hand matchups
+          </Link>
+          .
+        </p>
+      </section>
+
+      <section className="mt-12">
         <h2 className="text-xl font-bold text-slate-900">FAQ</h2>
         <dl className="mt-4 space-y-5">
           {faqs.map((faq) => (

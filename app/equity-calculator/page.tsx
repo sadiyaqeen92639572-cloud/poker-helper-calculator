@@ -7,9 +7,10 @@ import {
   getBreadcrumbSchema,
   getHowToSchema,
   SITE_URL,
+  absoluteUrl,
 } from "@/lib/seo";
 
-const URL = `${SITE_URL}/equity-calculator/`;
+const URL = absoluteUrl("equity-calculator");
 
 export const metadata: Metadata = {
   title: "Poker Equity Calculator",

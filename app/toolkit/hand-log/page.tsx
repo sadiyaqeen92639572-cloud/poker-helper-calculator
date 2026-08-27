@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { HandLog } from "@/components/toolkit/HandLog";
 import { FormulaBlock } from "@/components/seo/FormulaBlock";
-import { getSoftwareApplicationSchema, getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { getSoftwareApplicationSchema, getBreadcrumbSchema, SITE_URL, absoluteUrl } from "@/lib/seo";
 
-const URL = `${SITE_URL}/toolkit/hand-log/`;
+const URL = absoluteUrl("toolkit/hand-log");
 
 export const metadata: Metadata = {
   title: "Hand & Volume Log",
@@ -59,7 +59,7 @@ export default function HandLogPage() {
 
       <p className="mt-8 text-sm text-slate-600">
         Want a hard stop-loss/stop-win before your next session, not just tracking after?{" "}
-        <Link href="/toolkit/session-guardian/" className="font-semibold text-emerald-600 hover:underline">
+        <Link href="/toolkit/session-guardian" className="font-semibold text-emerald-600 hover:underline">
           Use Session Guardian
         </Link>
         .

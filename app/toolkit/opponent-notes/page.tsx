@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { OpponentNotes } from "@/components/toolkit/OpponentNotes";
-import { getSoftwareApplicationSchema, getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { getSoftwareApplicationSchema, getBreadcrumbSchema, SITE_URL, absoluteUrl } from "@/lib/seo";
 
-const URL = `${SITE_URL}/toolkit/opponent-notes/`;
+const URL = absoluteUrl("toolkit/opponent-notes");
 
 export const metadata: Metadata = {
   title: "Opponent Notes",
@@ -45,7 +45,7 @@ export default function OpponentNotesPage() {
 
       <p className="mt-8 text-sm text-slate-600">
         Weighing whether the whole table is worth sitting at, not just one player?{" "}
-        <Link href="/toolkit/table-selection/" className="font-semibold text-emerald-600 hover:underline">
+        <Link href="/toolkit/table-selection" className="font-semibold text-emerald-600 hover:underline">
           Use the table selection checklist
         </Link>
         .

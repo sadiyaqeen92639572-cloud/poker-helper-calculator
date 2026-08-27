@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PositionGuide } from "@/components/reference/PositionGuide";
-import { getFAQPageSchema, getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { getFAQPageSchema, getBreadcrumbSchema, SITE_URL, absoluteUrl } from "@/lib/seo";
 
-const URL = `${SITE_URL}/position-and-starting-hands/`;
+const URL = absoluteUrl("position-and-starting-hands");
 
 export const metadata: Metadata = {
   title: "Poker Position & Starting Hands Guide",
@@ -62,7 +62,7 @@ export default function PositionAndStartingHandsPage() {
 
       <p className="mt-8 text-sm text-slate-600">
         Want to build and size one of these opening ranges precisely?{" "}
-        <Link href="/poker-range-calculator/" className="font-semibold text-emerald-600 hover:underline">
+        <Link href="/poker-range-calculator" className="font-semibold text-emerald-600 hover:underline">
           Use the poker range calculator
         </Link>
         .

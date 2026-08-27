@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { GESMINE_ORG, SITE_URL } from "@/lib/seo";
+import { GESMINE_ORG, SITE_URL, absoluteUrl } from "@/lib/seo";
 
-const URL = `${SITE_URL}/about/`;
+const URL = absoluteUrl("about");
 
 export const metadata: Metadata = {
   title: "About Poker Helper Calculator",
@@ -74,7 +74,7 @@ export default function AboutPage() {
 
       <p className="mt-10 text-sm text-slate-600">
         Want to see the math in action?{" "}
-        <Link href="/equity-calculator/" className="font-semibold text-emerald-600 hover:underline">
+        <Link href="/equity-calculator" className="font-semibold text-emerald-600 hover:underline">
           Try the equity calculator
         </Link>
         .

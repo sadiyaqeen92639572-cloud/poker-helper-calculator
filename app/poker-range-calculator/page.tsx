@@ -9,9 +9,10 @@ import {
   getBreadcrumbSchema,
   getHowToSchema,
   SITE_URL,
+  absoluteUrl,
 } from "@/lib/seo";
 
-const URL = `${SITE_URL}/poker-range-calculator/`;
+const URL = absoluteUrl("poker-range-calculator");
 const TOTAL_COMBOS = 1326; // C(52,2)
 
 const EXAMPLE_RANGES = [
@@ -152,7 +153,7 @@ export default function PokerRangeCalculatorPage() {
       <p className="mt-8 text-sm text-slate-600">
         Want to know who&apos;s actually ahead between two ranges, not just how wide one is?{" "}
         <Link
-          href="/range-vs-range-equity-calculator/"
+          href="/range-vs-range-equity-calculator"
           className="font-semibold text-emerald-600 hover:underline"
         >
           Use the range vs range equity calculator

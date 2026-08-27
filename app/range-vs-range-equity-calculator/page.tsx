@@ -8,9 +8,10 @@ import {
   getBreadcrumbSchema,
   getHowToSchema,
   SITE_URL,
+  absoluteUrl,
 } from "@/lib/seo";
 
-const URL = `${SITE_URL}/range-vs-range-equity-calculator/`;
+const URL = absoluteUrl("range-vs-range-equity-calculator");
 
 export const metadata: Metadata = {
   title: "Range vs Range Equity Calculator",
@@ -118,7 +119,7 @@ export default function RangeVsRangeCalculatorPage() {
 
       <p className="mt-8 text-sm text-slate-600">
         Just want to size and sanity-check a single range instead of comparing two?{" "}
-        <Link href="/poker-range-calculator/" className="font-semibold text-emerald-600 hover:underline">
+        <Link href="/poker-range-calculator" className="font-semibold text-emerald-600 hover:underline">
           Use the poker range calculator
         </Link>{" "}
         to see exactly what percentage of all starting hands a range covers.

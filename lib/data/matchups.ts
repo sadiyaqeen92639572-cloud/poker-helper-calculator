@@ -63,26 +63,6 @@ export const MATCHUPS: Matchup[] = [
       "KK blocks two of AKs's outs to a set-beating trip-aces scenario (only two aces remain), but AKs still has a live ace to pair for top pair plus a backdoor flush draw — meaningfully better for the underdog than a pure lower pocket pair would be.",
   },
   {
-    slug: "kk-vs-qq",
-    heroCards: ["Kc", "Kd"],
-    villainCards: ["Qh", "Qs"],
-    heroLabel: "KK",
-    villainLabel: "QQ",
-    title: "KK vs QQ",
-    whyDifferent:
-      "A near-mirror of AA vs KK one tier down — QQ's only clean out is a queen, and it also has to dodge any ace, since an ace over the top doesn't help QQ but does nothing to KK's hand either, unlike a king which pairs KK's set.",
-  },
-  {
-    slug: "qq-vs-aks",
-    heroCards: ["Qc", "Qd"],
-    villainCards: ["Ah", "Kh"],
-    heroLabel: "QQ",
-    villainLabel: "AKs",
-    title: "QQ vs AKs",
-    whyDifferent:
-      "The closest thing to a coinflip in this list — QQ is ahead of a made hand but behind two live overcards with a flush draw backup, so this is usually within a few points of 50/50 depending on suit blockers, unlike QQ vs a single overcard hand like AJ which favors QQ more clearly.",
-  },
-  {
     slug: "jj-vs-aks",
     heroCards: ["Jc", "Jd"],
     villainCards: ["Ah", "Kh"],

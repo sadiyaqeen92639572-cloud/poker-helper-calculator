@@ -5,7 +5,7 @@ import { MATCHUPS } from "@/lib/data/matchups";
 import { calculateEquityMultiway } from "@/lib/poker/equity";
 import { equityOf } from "@/lib/poker/types";
 import { CardLabel } from "@/components/equity/CardSlot";
-import { getFAQPageSchema, getSoftwareApplicationSchema, getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { getFAQPageSchema, getSoftwareApplicationSchema, getBreadcrumbSchema, SITE_URL, absoluteUrl } from "@/lib/seo";
 
 export function generateStaticParams() {
   return MATCHUPS.map((m) => ({ slug: m.slug }));
@@ -31,7 +31,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const matchup = findMatchup(slug);
   if (!matchup) return {};
-  const url = `${SITE_URL}/matchups/${matchup.slug}/`;
+  const url = absoluteUrl(`matchups/${matchup.slug}`);
   return {
     title: `${matchup.title} Odds`,
     description: `${matchup.heroLabel} vs ${matchup.villainLabel} preflop equity, computed by Monte Carlo simulation. See exact win/tie/lose percentages and why this matchup plays the way it does.`,
@@ -45,7 +45,7 @@ export default async function MatchupPage({ params }: { params: Promise<{ slug: 
   if (!matchup) notFound();
 
   const result = computeMatchupEquity(matchup);
-  const url = `${SITE_URL}/matchups/${matchup.slug}/`;
+  const url = absoluteUrl(`matchups/${matchup.slug}`);
 
   const faqs = [
     {
@@ -72,7 +72,7 @@ export default async function MatchupPage({ params }: { params: Promise<{ slug: 
   const faqSchema = getFAQPageSchema(faqs);
   const breadcrumbSchema = getBreadcrumbSchema([
     { name: "Home", url: SITE_URL },
-    { name: "Matchups", url: `${SITE_URL}/matchups/` },
+    { name: "Matchups", url: absoluteUrl("matchups") },
     { name: matchup.title, url },
   ]);
 
@@ -117,7 +117,7 @@ export default async function MatchupPage({ params }: { params: Promise<{ slug: 
 
       <p className="mt-8 text-sm text-slate-600">
         Want a different matchup, a range instead of an exact hand, or a specific board?{" "}
-        <Link href="/equity-calculator/" className="font-semibold text-emerald-600 hover:underline">
+        <Link href="/equity-calculator" className="font-semibold text-emerald-600 hover:underline">
           Use the full equity calculator
         </Link>
         .

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SessionGuardian } from "@/components/toolkit/SessionGuardian";
-import { getSoftwareApplicationSchema, getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { getSoftwareApplicationSchema, getBreadcrumbSchema, SITE_URL, absoluteUrl } from "@/lib/seo";
 
-const URL = `${SITE_URL}/toolkit/session-guardian/`;
+const URL = absoluteUrl("toolkit/session-guardian");
 
 export const metadata: Metadata = {
   title: "Session Guardian",
@@ -45,7 +45,7 @@ export default function SessionGuardianPage() {
 
       <p className="mt-8 text-sm text-slate-600">
         Want the full picture over many sessions, not just this one?{" "}
-        <Link href="/toolkit/hand-log/" className="font-semibold text-emerald-600 hover:underline">
+        <Link href="/toolkit/hand-log" className="font-semibold text-emerald-600 hover:underline">
           Use the hand &amp; volume log
         </Link>
         .

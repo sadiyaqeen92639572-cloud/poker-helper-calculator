@@ -4,29 +4,29 @@ const FOOTER_GROUPS = [
   {
     heading: "Calculators",
     links: [
-      { href: "/implied-odds-calculator/", label: "Implied Odds Calculator" },
-      { href: "/equity-calculator/", label: "Equity Calculator" },
-      { href: "/range-vs-range-equity-calculator/", label: "Range vs Range Calculator" },
-      { href: "/poker-range-calculator/", label: "Poker Range Calculator" },
-      { href: "/matchups/", label: "Hand Matchup Odds" },
-      { href: "/toolkit/bankroll-calculator/", label: "Bankroll Calculator" },
+      { href: "/implied-odds-calculator", label: "Implied Odds Calculator" },
+      { href: "/equity-calculator", label: "Equity Calculator" },
+      { href: "/range-vs-range-equity-calculator", label: "Range vs Range Calculator" },
+      { href: "/poker-range-calculator", label: "Poker Range Calculator" },
+      { href: "/matchups", label: "Hand Matchup Odds" },
+      { href: "/toolkit/bankroll-calculator", label: "Bankroll Calculator" },
     ],
   },
   {
     heading: "Reference guides",
     links: [
-      { href: "/hand-strength-guide/", label: "Hand Strength Guide" },
-      { href: "/position-and-starting-hands/", label: "Position & Starting Hands" },
-      { href: "/bet-sizing-guide/", label: "Bet Sizing Guide" },
+      { href: "/hand-strength-guide", label: "Hand Strength Guide" },
+      { href: "/position-and-starting-hands", label: "Position & Starting Hands" },
+      { href: "/bet-sizing-guide", label: "Bet Sizing Guide" },
     ],
   },
   {
     heading: "Home-game toolkit",
     links: [
-      { href: "/toolkit/opponent-notes/", label: "Opponent Notes" },
-      { href: "/toolkit/table-selection/", label: "Table Selection" },
-      { href: "/toolkit/session-guardian/", label: "Session Guardian" },
-      { href: "/toolkit/hand-log/", label: "Hand & Volume Log" },
+      { href: "/toolkit/opponent-notes", label: "Opponent Notes" },
+      { href: "/toolkit/table-selection", label: "Table Selection" },
+      { href: "/toolkit/session-guardian", label: "Session Guardian" },
+      { href: "/toolkit/hand-log", label: "Hand & Volume Log" },
     ],
   },
 ];
@@ -44,7 +44,7 @@ export function SiteFooter() {
               Standalone, manual-entry equity and odds calculators. No live-table connection,
               no automation.
             </p>
-            <Link href="/about/" className="mt-2 inline-block text-emerald-400 hover:underline">
+            <Link href="/about" className="mt-2 inline-block text-emerald-400 hover:underline">
               About &amp; methodology
             </Link>
           </div>

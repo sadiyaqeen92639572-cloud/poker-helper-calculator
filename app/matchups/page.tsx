@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MATCHUPS } from "@/lib/data/matchups";
-import { getCollectionPageSchema, SITE_URL } from "@/lib/seo";
+import { getCollectionPageSchema, SITE_URL, absoluteUrl } from "@/lib/seo";
 
-const URL = `${SITE_URL}/matchups/`;
+const URL = absoluteUrl("matchups");
 
 export const metadata: Metadata = {
   title: "Poker Hand Matchup Odds",
@@ -19,7 +19,7 @@ export default function MatchupsIndexPage() {
     URL,
     MATCHUPS.map((m) => ({
       name: m.title,
-      url: `${SITE_URL}/matchups/${m.slug}/`,
+      url: absoluteUrl(`matchups/${m.slug}`),
       description: `${m.heroLabel} vs ${m.villainLabel} preflop odds.`,
     })),
   );
@@ -42,7 +42,7 @@ export default function MatchupsIndexPage() {
         {MATCHUPS.map((m) => (
           <Link
             key={m.slug}
-            href={`/matchups/${m.slug}/`}
+            href={`/matchups/${m.slug}`}
             className="rounded-lg border border-slate-200 bg-white p-3 text-center text-sm font-semibold text-slate-800 shadow-sm hover:border-emerald-400 hover:text-emerald-600"
           >
             {m.title}

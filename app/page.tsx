@@ -11,37 +11,37 @@ export const metadata: Metadata = {
 
 const tools = [
   {
-    href: "/implied-odds-calculator/",
+    href: "/implied-odds-calculator",
     title: "Implied Odds Calculator",
     description: "Pot odds + stack-to-pot ratio, to see whether a draw is worth calling.",
     live: true,
   },
   {
-    href: "/toolkit/bankroll-calculator/",
+    href: "/toolkit/bankroll-calculator",
     title: "Bankroll Calculator",
     description: "Kelly-criterion risk-of-ruin math — how many buy-ins you need at a stake.",
     live: true,
   },
   {
-    href: "/equity-calculator/",
+    href: "/equity-calculator",
     title: "Equity Calculator",
     description: "Hand vs hand, hand vs range, range vs range, 3+ way pots.",
     live: true,
   },
   {
-    href: "/range-vs-range-equity-calculator/",
+    href: "/range-vs-range-equity-calculator",
     title: "Range vs Range Calculator",
     description: "Build both players' ranges on a 13x13 grid and get live equity.",
     live: true,
   },
   {
-    href: "/matchups/",
+    href: "/matchups",
     title: "Hand Matchup Odds",
     description: "AA vs KK, AKs vs QQ, and 18 more common preflop matchups.",
     live: true,
   },
   {
-    href: "/poker-range-calculator/",
+    href: "/poker-range-calculator",
     title: "Poker Range Calculator",
     description: "Build a range and see its exact percentage of all starting hands.",
     live: true,
@@ -50,27 +50,27 @@ const tools = [
 
 const guides = [
   {
-    href: "/hand-strength-guide/",
+    href: "/hand-strength-guide",
     title: "Hand Strength Guide",
     description: "The 9 hand categories, ranked, with what makes each strong or vulnerable.",
   },
   {
-    href: "/position-and-starting-hands/",
+    href: "/position-and-starting-hands",
     title: "Position & Starting Hands",
     description: "Every seat at the table, in order, with opening-range guidance.",
   },
   {
-    href: "/bet-sizing-guide/",
+    href: "/bet-sizing-guide",
     title: "Bet Sizing Guide",
     description: "Standard sizing by street — preflop, c-bets, and value vs bluff.",
   },
 ];
 
 const toolkit = [
-  { href: "/toolkit/opponent-notes/", title: "Opponent Notes", description: "Log tendencies on players you've faced." },
-  { href: "/toolkit/table-selection/", title: "Table Selection", description: "Score a table before you sit down." },
-  { href: "/toolkit/session-guardian/", title: "Session Guardian", description: "Stop-loss, stop-win, and a session timer." },
-  { href: "/toolkit/hand-log/", title: "Hand & Volume Log", description: "Track results over time — bb/100, automatically." },
+  { href: "/toolkit/opponent-notes", title: "Opponent Notes", description: "Log tendencies on players you've faced." },
+  { href: "/toolkit/table-selection", title: "Table Selection", description: "Score a table before you sit down." },
+  { href: "/toolkit/session-guardian", title: "Session Guardian", description: "Stop-loss, stop-win, and a session timer." },
+  { href: "/toolkit/hand-log", title: "Hand & Volume Log", description: "Track results over time — bb/100, automatically." },
 ];
 
 export default function Home() {

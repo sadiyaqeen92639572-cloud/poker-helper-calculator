@@ -7,9 +7,10 @@ import {
   getBreadcrumbSchema,
   getHowToSchema,
   SITE_URL,
+  absoluteUrl,
 } from "@/lib/seo";
 
-const URL = `${SITE_URL}/toolkit/bankroll-calculator/`;
+const URL = absoluteUrl("toolkit/bankroll-calculator");
 
 export const metadata: Metadata = {
   title: "Poker Bankroll Calculator",

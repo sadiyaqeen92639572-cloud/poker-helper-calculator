@@ -8,19 +8,19 @@ export function SiteHeader() {
           Poker Helper <span className="text-emerald-400">Calculator</span>
         </Link>
         <nav className="hidden gap-5 text-sm font-medium text-slate-300 sm:flex">
-          <Link href="/implied-odds-calculator/" className="hover:text-white">
+          <Link href="/implied-odds-calculator" className="hover:text-white">
             Implied Odds
           </Link>
-          <Link href="/equity-calculator/" className="hover:text-white">
+          <Link href="/equity-calculator" className="hover:text-white">
             Equity Calculator
           </Link>
-          <Link href="/range-vs-range-equity-calculator/" className="hover:text-white">
+          <Link href="/range-vs-range-equity-calculator" className="hover:text-white">
             Range vs Range
           </Link>
-          <Link href="/matchups/" className="hover:text-white">
+          <Link href="/matchups" className="hover:text-white">
             Matchups
           </Link>
-          <Link href="/toolkit/bankroll-calculator/" className="hover:text-white">
+          <Link href="/toolkit/bankroll-calculator" className="hover:text-white">
             Bankroll
           </Link>
         </nav>

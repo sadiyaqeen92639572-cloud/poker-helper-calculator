@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HandStrengthTable } from "@/components/reference/HandStrengthTable";
-import { getFAQPageSchema, getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { getFAQPageSchema, getBreadcrumbSchema, SITE_URL, absoluteUrl } from "@/lib/seo";
 
-const URL = `${SITE_URL}/hand-strength-guide/`;
+const URL = absoluteUrl("hand-strength-guide");
 
 export const metadata: Metadata = {
   title: "Poker Hand Strength Guide",
@@ -62,7 +62,7 @@ export default function HandStrengthGuidePage() {
 
       <p className="mt-8 text-sm text-slate-600">
         Want to know your exact win probability with a hand, not just its category?{" "}
-        <Link href="/equity-calculator/" className="font-semibold text-emerald-600 hover:underline">
+        <Link href="/equity-calculator" className="font-semibold text-emerald-600 hover:underline">
           Use the equity calculator
         </Link>
         .

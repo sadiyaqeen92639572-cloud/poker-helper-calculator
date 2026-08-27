@@ -5,6 +5,17 @@ export interface FAQItem {
 
 const SITE_URL = "https://pokerhelpercalculator.com";
 
+/**
+ * Single source of truth for every absolute URL the site emits — canonical
+ * tags, JSON-LD `url`/`@id`, sitemap entries. Always returns the
+ * NO-trailing-slash form, which is what the host serves 200 for (`/x/`
+ * 308-redirects to `/x`). Do not hand-build `${SITE_URL}/...` anywhere else.
+ */
+export function absoluteUrl(path = ""): string {
+  const clean = path.replace(/^\/+/, "").replace(/\/+$/, "");
+  return clean ? `${SITE_URL}/${clean}` : SITE_URL;
+}
+
 const GESMINE_ORG = {
   "@type": "Organization",
   name: "Poker Helper Calculator",

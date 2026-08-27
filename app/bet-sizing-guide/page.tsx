@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BetSizingGuide } from "@/components/reference/BetSizingGuide";
-import { getFAQPageSchema, getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { getFAQPageSchema, getBreadcrumbSchema, SITE_URL, absoluteUrl } from "@/lib/seo";
 
-const URL = `${SITE_URL}/bet-sizing-guide/`;
+const URL = absoluteUrl("bet-sizing-guide");
 
 export const metadata: Metadata = {
   title: "Poker Bet Sizing Guide",
@@ -61,7 +61,7 @@ export default function BetSizingGuidePage() {
 
       <p className="mt-8 text-sm text-slate-600">
         Deciding whether to call a bet sized like these?{" "}
-        <Link href="/implied-odds-calculator/" className="font-semibold text-emerald-600 hover:underline">
+        <Link href="/implied-odds-calculator" className="font-semibold text-emerald-600 hover:underline">
           Use the implied odds calculator
         </Link>{" "}
         to check the math.

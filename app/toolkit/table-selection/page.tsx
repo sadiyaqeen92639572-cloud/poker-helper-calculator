@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { TableSelectionChecklist } from "@/components/toolkit/TableSelectionChecklist";
-import { getSoftwareApplicationSchema, getBreadcrumbSchema, SITE_URL } from "@/lib/seo";
+import { getSoftwareApplicationSchema, getBreadcrumbSchema, SITE_URL, absoluteUrl } from "@/lib/seo";
 
-const URL = `${SITE_URL}/toolkit/table-selection/`;
+const URL = absoluteUrl("toolkit/table-selection");
 
 export const metadata: Metadata = {
   title: "Table Selection Checklist",
@@ -46,7 +46,7 @@ export default function TableSelectionPage() {
 
       <p className="mt-8 text-sm text-slate-600">
         Found a good table — now sizing how much to bring to it?{" "}
-        <Link href="/toolkit/bankroll-calculator/" className="font-semibold text-emerald-600 hover:underline">
+        <Link href="/toolkit/bankroll-calculator" className="font-semibold text-emerald-600 hover:underline">
           Use the bankroll calculator
         </Link>
         .

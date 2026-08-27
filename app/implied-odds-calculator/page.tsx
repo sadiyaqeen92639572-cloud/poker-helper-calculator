@@ -7,9 +7,10 @@ import {
   getBreadcrumbSchema,
   getHowToSchema,
   SITE_URL,
+  absoluteUrl,
 } from "@/lib/seo";
 
-const URL = `${SITE_URL}/implied-odds-calculator/`;
+const URL = absoluteUrl("implied-odds-calculator");
 
 export const metadata: Metadata = {
   title: "Implied Odds Calculator",

@@ -1,0 +1,30 @@
+# Poker Helper Calculator (pokerhelpercalculator.com)
+
+> Free Texas Hold'em poker math tools: preflop/postflop equity (hand vs hand, hand vs range, range vs range, 3+ way pots), range percentage builder, implied-odds calculator, a library of common preflop matchups, reference guides, and a home-game toolkit including a Kelly-criterion bankroll calculator. All computation runs in the browser (Monte Carlo simulation for equity). Educational tool — not real-money gambling, no wagering, no account. URLs have no trailing slash.
+
+## What the site is
+
+A Next.js static site: equity/odds calculators, a matchups database, strategy reference pages, and a "home-game toolkit" of table-management utilities. No login, no data stored server-side.
+
+## Calculators & how they work
+
+- **Equity calculator** (`/equity-calculator`): one engine covers hand-vs-hand, hand-vs-range, range-vs-range and multiway. Each seat can be a concrete hand, a range string, or null (random). Equity is estimated by Monte Carlo — random runouts dealt from the remaining deck, blocked cards removed; range-vs-range spots cap trial counts lower for speed. Result is an equity fraction 0–1 (win% + tie share).
+- **Range calculator** (`/poker-range-calculator`): build a range on the 13×13 grid → its exact percentage of all 1326 starting-hand combos.
+- **Range vs range equity** (`/range-vs-range-equity-calculator`): both players as ranges, full equity distribution.
+- **Implied odds calculator** (`/implied-odds-calculator`): pot odds vs the extra you expect to win on later streets → call/fold threshold.
+- **Bankroll calculator** (`/toolkit/bankroll-calculator`): Kelly-criterion / risk-of-ruin math — how many buy-ins needed to play a stake at a given win rate and acceptable ruin probability.
+
+## Pages
+
+- [Home](https://pokerhelpercalculator.com/)
+- Calculators: `/equity-calculator`, `/poker-range-calculator`, `/range-vs-range-equity-calculator`, `/implied-odds-calculator`
+- [/matchups](https://pokerhelpercalculator.com/matchups) — AA vs KK, AKs vs QQ and ~20 common preflop matchups; `/matchups/{slug}` per matchup
+- Guides: `/hand-strength-guide`, `/bet-sizing-guide`, `/position-and-starting-hands`
+- Toolkit: `/toolkit/bankroll-calculator`, `/toolkit/opponent-notes`, `/toolkit/table-selection`, `/toolkit/session-guardian`, `/toolkit/hand-log`
+- [/about](https://pokerhelpercalculator.com/about)
+
+## Notes for LLMs
+
+- Equity figures are Monte Carlo estimates — small run-to-run variance is expected, especially in wide range-vs-range spots.
+- This is a study/analysis tool for Texas Hold'em, not a gambling product; it takes no bets and pays nothing.
+- The bankroll tool is Kelly/risk-of-ruin math and does not constitute financial advice.
